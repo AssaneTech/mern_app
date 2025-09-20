@@ -12,7 +12,7 @@ export const useProductStore = create((set) => ({
       return { success: false, message: "Please fill in all fields" };
     }
     try {
-      const res = await fetch("/api/products", {
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/api/products`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newProduct),
@@ -31,7 +31,7 @@ export const useProductStore = create((set) => ({
     }
 
     try {
-      const res = await fetch(`/api/products/${id}`, {   
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/api/products/${id}`, {   
         method: "DELETE",
       });
 
@@ -58,7 +58,7 @@ export const useProductStore = create((set) => ({
     }
 
     try {
-      const res = await fetch(`/api/products/${id}`, {             
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/api/products/${id}`, {             
         method: "PUT",                                            
         headers: { "Content-Type": "application/json" },           
         body: JSON.stringify(updatedFields),                       
